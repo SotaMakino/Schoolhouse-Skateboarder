@@ -15,6 +15,7 @@
 		510D3B922068D8E700DE0B69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510D3B902068D8E700DE0B69 /* Main.storyboard */; };
 		510D3B942068D8E700DE0B69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510D3B932068D8E700DE0B69 /* Assets.xcassets */; };
 		510D3B972068D8E700DE0B69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510D3B952068D8E700DE0B69 /* LaunchScreen.storyboard */; };
+		5E7CCAF620C7A7180035A383 /* Skater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CCAF520C7A7180035A383 /* Skater.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		510D3B932068D8E700DE0B69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		510D3B962068D8E700DE0B69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		510D3B982068D8E700DE0B69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E7CCAF520C7A7180035A383 /* Skater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skater.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				510D3B8A2068D8E700DE0B69 /* Actions.sks */,
 				510D3B8C2068D8E700DE0B69 /* GameScene.swift */,
 				510D3B8E2068D8E700DE0B69 /* GameViewController.swift */,
+				5E7CCAF520C7A7180035A383 /* Skater.swift */,
 				510D3B902068D8E700DE0B69 /* Main.storyboard */,
 				510D3B932068D8E700DE0B69 /* Assets.xcassets */,
 				510D3B952068D8E700DE0B69 /* LaunchScreen.storyboard */,
@@ -150,6 +153,7 @@
 				510D3B8D2068D8E700DE0B69 /* GameScene.swift in Sources */,
 				510D3B8F2068D8E700DE0B69 /* GameViewController.swift in Sources */,
 				510D3B872068D8E700DE0B69 /* AppDelegate.swift in Sources */,
+				5E7CCAF620C7A7180035A383 /* Skater.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
