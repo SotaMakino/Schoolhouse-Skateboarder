@@ -16,6 +16,10 @@
 		510D3B942068D8E700DE0B69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510D3B932068D8E700DE0B69 /* Assets.xcassets */; };
 		510D3B972068D8E700DE0B69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510D3B952068D8E700DE0B69 /* LaunchScreen.storyboard */; };
 		5E7CCAF620C7A7180035A383 /* Skater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CCAF520C7A7180035A383 /* Skater.swift */; };
+		5E7CCAF820C7BF2D0035A383 /* MenuLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CCAF720C7BF2D0035A383 /* MenuLayer.swift */; };
+		5E7CCAFA20C7BF860035A383 /* ch18-sounds in Resources */ = {isa = PBXBuildFile; fileRef = 5E7CCAF920C7BF860035A383 /* ch18-sounds */; };
+		5E7CCAFE20C7C12D0035A383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7CCAFC20C7C12D0035A383 /* Assets.xcassets */; };
+		5E7CCB0020C7C1620035A383 /* sparks.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5E7CCAFF20C7C1620035A383 /* sparks.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		510D3B962068D8E700DE0B69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		510D3B982068D8E700DE0B69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E7CCAF520C7A7180035A383 /* Skater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skater.swift; sourceTree = "<group>"; };
+		5E7CCAF720C7BF2D0035A383 /* MenuLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuLayer.swift; path = "../../Downloads/CIAFK_ancillary_files/Chapter 18/SchoolhouseSkateboarder/SchoolhouseSkateboarder/MenuLayer.swift"; sourceTree = "<group>"; };
+		5E7CCAF920C7BF860035A383 /* ch18-sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "ch18-sounds"; sourceTree = "<group>"; };
+		5E7CCAFC20C7C12D0035A383 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		5E7CCAFF20C7C1620035A383 /* sparks.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = sparks.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,14 +70,18 @@
 		510D3B852068D8E700DE0B69 /* SchoolhouseSkateboarder */ = {
 			isa = PBXGroup;
 			children = (
+				5E7CCAFC20C7C12D0035A383 /* Assets.xcassets */,
 				510D3B862068D8E700DE0B69 /* AppDelegate.swift */,
 				510D3B882068D8E700DE0B69 /* GameScene.sks */,
+				5E7CCAFF20C7C1620035A383 /* sparks.sks */,
 				510D3B8A2068D8E700DE0B69 /* Actions.sks */,
 				510D3B8C2068D8E700DE0B69 /* GameScene.swift */,
 				510D3B8E2068D8E700DE0B69 /* GameViewController.swift */,
 				5E7CCAF520C7A7180035A383 /* Skater.swift */,
+				5E7CCAF720C7BF2D0035A383 /* MenuLayer.swift */,
 				510D3B902068D8E700DE0B69 /* Main.storyboard */,
 				510D3B932068D8E700DE0B69 /* Assets.xcassets */,
+				5E7CCAF920C7BF860035A383 /* ch18-sounds */,
 				510D3B952068D8E700DE0B69 /* LaunchScreen.storyboard */,
 				510D3B982068D8E700DE0B69 /* Info.plist */,
 			);
@@ -139,6 +151,9 @@
 				510D3B892068D8E700DE0B69 /* GameScene.sks in Resources */,
 				510D3B942068D8E700DE0B69 /* Assets.xcassets in Resources */,
 				510D3B972068D8E700DE0B69 /* LaunchScreen.storyboard in Resources */,
+				5E7CCB0020C7C1620035A383 /* sparks.sks in Resources */,
+				5E7CCAFA20C7BF860035A383 /* ch18-sounds in Resources */,
+				5E7CCAFE20C7C12D0035A383 /* Assets.xcassets in Resources */,
 				510D3B8B2068D8E700DE0B69 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +167,7 @@
 			files = (
 				510D3B8D2068D8E700DE0B69 /* GameScene.swift in Sources */,
 				510D3B8F2068D8E700DE0B69 /* GameViewController.swift in Sources */,
+				5E7CCAF820C7BF2D0035A383 /* MenuLayer.swift in Sources */,
 				510D3B872068D8E700DE0B69 /* AppDelegate.swift in Sources */,
 				5E7CCAF620C7A7180035A383 /* Skater.swift in Sources */,
 			);

@@ -26,6 +26,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case high = 100.0
     }
     
+    // This enum defines the states the game may be in
+    enum GameState {
+        case notRunning
+        case running
+    }
     
     // MARK:- Class Properties
     
@@ -40,6 +45,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // The current brick level determines the y-position of new bricks
     var brickLevel = BrickLevel.low
+    
+    // The current game state is tracked
+    var gameState = GameState.notRunning
     
     // Setting for how fast the game is scrolling to the right
     // This may increase as the user progresses in the game
@@ -87,7 +95,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let tapGesture = UITapGestureRecognizer(target: self, action: tapMethod)
         view.addGestureRecognizer(tapGesture)
         
-        startGame()
+        // Add a menu overlay with "Tap to play" text
+        let menuBackgroundColor = UIColor.black.withAlphaComponent(0.4)
+        let menuLayer = MenuLayer(color: menuBackgroundColor, size: frame.size)
+        menuLayer.anchorPoint = CGPoint(x: 0.0, y: 0.0)
+        menuLayer.position = CGPoint(x: 0.0, y: 0.0)
+        menuLayer.zPosition = 30
+        menuLayer.name = "menuLayer"
+        menuLayer.display(message: "Tap to play", score: nil)
+        addChild(menuLayer)
     }
     
     func resetSkater() {
@@ -167,6 +183,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // When a new game is started, reset to starting conditions
         
+        gameState = .running
+        
         resetSkater()
         
         score = 0
@@ -190,13 +208,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // When the game ends, see if the player got a new high score
         
+        gameState = .notRunning
+        
         if score > highScore {
             highScore = score
             
             updateHighScoreLabelText()
         }
         
-        startGame()
+        // Show the "Game Over!" menu overlay
+        let menuBackgroundColor = UIColor.black.withAlphaComponent(0.4)
+        let menuLayer = MenuLayer(color: menuBackgroundColor, size: frame.size)
+        menuLayer.anchorPoint = CGPoint.zero
+        menuLayer.position = CGPoint.zero
+        menuLayer.zPosition = 30
+        menuLayer.name = "menuLayer"
+        menuLayer.display(message: "Game Over!", score: score)
+        addChild(menuLayer)
     }
     
     
@@ -388,6 +416,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         
+        if gameState != .running {
+            return
+        }
+        
         // Slowly increase the scrollSpeed as the game progresses
         scrollSpeed += 0.01
         
@@ -417,10 +449,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     @objc func handleTap(tapGesture: UITapGestureRecognizer) {
         
-        // Make the skater jump if player taps while she is on the ground
-        if skater.isOnGround {
+        if gameState == .running {
             
-            skater.physicsBody?.applyImpulse(CGVector(dx: 0.0, dy: 260.0))
+            // Make the skater jump if player taps while she is on the ground
+            if skater.isOnGround {
+                
+                skater.physicsBody?.applyImpulse(CGVector(dx: 0.0, dy: 260.0))
+                
+                run(SKAction.playSoundFileNamed("jump.wav", waitForCompletion: false))
+            }
+        }
+        else {
+            
+            // If the game is not running, tapping starts a new game
+            if let menuLayer: SKSpriteNode = childNode(withName: "menuLayer") as? SKSpriteNode {
+                
+                menuLayer.removeFromParent()
+            }
+            
+            startGame()
         }
     }
     
@@ -431,6 +478,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Check if the contact is between the skater and a brick
         if contact.bodyA.categoryBitMask == PhysicsCategory.skater && contact.bodyB.categoryBitMask == PhysicsCategory.brick {
+            
+            if let velocityY = skater.physicsBody?.velocity.dy {
+                
+                if !skater.isOnGround && velocityY < 100.0 {
+                    
+                    skater.createSparks()
+                }
+            }
             
             skater.isOnGround = true
         }
@@ -444,6 +499,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 // Give the player 50 points for getting a gem
                 score += 50
                 updateScoreLabelText()
+                
+                run(SKAction.playSoundFileNamed("gem.wav", waitForCompletion: false))
             }
         }
     }
